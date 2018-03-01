@@ -1,0 +1,13 @@
+{% extends "../layouts/default.twig" %}
+
+{% if data.categories.length %}
+			<div class="col-sm-4 col-md-3">
+				<h2>Categories</h2>
+				<div class="list-group" style="margin-top: 70px;">
+					<a href="/blog" class="{% if not data.category %}active{% endif %} list-group-item">All Categories</a>
+					{% for cat in data.categories %}
+						<a href="/blog/{{ cat.key }}" class="{% if data.category and data.category.id == cat.id %}active{% endif %} list-group-item">{{ cat.name }}</a>
+					{% endfor %}
+				</div>
+			</div>
+			{% endif %}
